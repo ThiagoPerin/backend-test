@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "cleanup": "rimfar ./dist ./node_modules/", 
+    "cleanup": "rimfar ./dist ./node_modules/",
     "start": "ts-node ./index.ts",
     "test:performance": "k6 run ./test.js",
     "test:performance:dashboard": "K6_WEB_DASHBOARD=true k6 run ./test.js",
