@@ -1,5 +1,7 @@
 import express from 'express';
 import apiRouter from './routes/router';
+import { loadAndProcessCsv } from './utils/loadAndProcessCsv';
+import { setIpRanges } from './cache/ipRangesCache';
 
 const app = express();
 let server: ReturnType<typeof app.listen> | null = null;
@@ -7,8 +9,11 @@ let server: ReturnType<typeof app.listen> | null = null;
 app.use(express.json());
 app.use(apiRouter);
 
-export function start(port = 3000) {
+export async function start(port = 3000) {
   if (!server) {
+    const ipRangesFromCsv = await loadAndProcessCsv('./IP2LOCATION-LITE-DB11.CSV');
+    setIpRanges(ipRangesFromCsv);
+    
     server = app.listen(port, () => {
       console.log('Server started.');
       console.log(`Server listening at http://localhost:${port}`);
