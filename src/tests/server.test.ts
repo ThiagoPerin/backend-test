@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { beforeEach, afterEach, describe, it } from 'node:test';
-import { start, stop } from '../server.ts';
+import { start, stop } from '../server';
 
 describe('integration tests', () => {
   const PORT = 3999;
