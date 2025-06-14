@@ -1,19 +1,11 @@
 import express from 'express';
+import apiRouter from './routes/router';
 
 const app = express();
 let server: ReturnType<typeof app.listen> | null = null;
 
 app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Teste rota base da API');
-});
-
-app.get('/ip/location', (req, res) => {
-  res.statusCode = 404;
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ error: 'Status 404: Not Found' }));
-});
+app.use(apiRouter);
 
 export function start(port = 3000) {
   if (!server) {
