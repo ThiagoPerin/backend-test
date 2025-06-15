@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { describe, it } from 'node:test';
-import { ipToID } from '../ip-calculator';
+import { ipToID } from '../utils/ip-calculator';
 
 describe('ipToID', () => {
   it('should return a number', () => {
