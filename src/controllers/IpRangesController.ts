@@ -6,11 +6,16 @@ const service = new IpRangesService();
 export class IpRangesController {
     static async findIpRange(req: Request, res: Response) {
         const ip = req.query["ip"] as string;
+
+        if (ip === undefined) {
+            return res.status(400).json({ message: 'No IP provided.' });
+        }
+
         try {
             const location = await service.findIpRange(ip);
 
             if (!location) {
-                return res.status(404).json({ message: 'IP not found' });
+                return res.status(404).json({ message: 'IP location not found.' });
             }
 
             return res.status(200).json(location);
