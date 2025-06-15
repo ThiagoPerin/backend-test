@@ -1,4 +1,4 @@
-import { IpRangesRepository } from "../repositories/ipRangesRepository";
+import { IpRangesRepository } from "../repositories/IpRangesRepository";
 
 export class IpRangesService {
     private repository: IpRangesRepository;

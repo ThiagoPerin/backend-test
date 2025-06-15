@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IpRangesService } from "../services/ipRangesService";
+import { IpRangesService } from "../services/IpRangesService";
 
 const service = new IpRangesService();
 

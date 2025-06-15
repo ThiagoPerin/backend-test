@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { IpRangesController } from "../controllers/ipRangesController";
+import { IpRangesController } from "../controllers/IpRangesController";
 
 const apiRouter = Router();
 
