@@ -1,8 +1,8 @@
 import { findIpRangeById } from '../utils/findIpRangeById';
-import { IpRange } from '../types/ipRangesType';
+import { IpRangeType } from '../types/ipRangesType';
 
 describe('findIpRangeById', () => {
-    const ipRanges: IpRange[] = [
+    const ipRanges: IpRangeType[] = [
         { lower: 0, upper: 99, countryCode: 'BR', countryName: 'Brazil', state: 'PR', city: 'Curitiba' },
         { lower: 100, upper: 199, countryCode: 'US', countryName: 'United States', state: 'CA', city: 'San Francisco' },
         { lower: 200, upper: 299, countryCode: 'DE', countryName: 'Germany', state: 'BE', city: 'Berlin' },

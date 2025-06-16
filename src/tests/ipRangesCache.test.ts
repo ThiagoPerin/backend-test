@@ -1,8 +1,8 @@
 import { setIpRanges, getIpRanges } from '../cache/ipRangesCache';
-import { IpRange } from '../types/ipRangesType';
+import { IpRangeType } from '../types/ipRangesType';
 
 describe('ipRangesCache', () => {
-    const mockData: IpRange[] = [
+    const mockData: IpRangeType[] = [
         { lower: 1, upper: 10, countryCode: 'BR', countryName: 'Brazil', state: 'PR', city: 'Curitiba' },
         { lower: 11, upper: 20, countryCode: 'US', countryName: 'United States', state: 'CA', city: 'San Francisco' }
     ];
@@ -19,7 +19,7 @@ describe('ipRangesCache', () => {
     });
 
     test('should overwrite ip ranges', () => {
-        const newData: IpRange[] = [
+        const newData: IpRangeType[] = [
             { lower: 100, upper: 200, countryCode: 'FR', countryName: 'France', state: 'IDF', city: 'Paris' }
         ];
 

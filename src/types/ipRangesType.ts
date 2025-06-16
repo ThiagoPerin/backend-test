@@ -1,4 +1,4 @@
-export type IpRange = {
+export type IpRangeType = {
     lower: number;
     upper: number;
     countryCode: string;

@@ -1,14 +1,14 @@
 import fs from 'fs';
 import readline from 'readline';
-import { IpRange } from '../types/ipRangesType';
+import { IpRangeType } from '../types/ipRangesType';
 
 function sanitizeCsvValue(value: string): string {
     return value.replace(/^"|"$/g, '').trim();
 }
 
-export async function loadAndProcessCsv(filePath: string): Promise<IpRange[]> {
+export async function loadAndProcessCsv(filePath: string): Promise<IpRangeType[]> {
     console.log('Loading And Processing CSV...');
-    const ipRanges: IpRange[] = [];
+    const ipRanges: IpRangeType[] = [];
 
     const rl = readline.createInterface({
         input: fs.createReadStream(filePath),

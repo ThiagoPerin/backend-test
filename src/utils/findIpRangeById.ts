@@ -1,6 +1,6 @@
-import { IpRange } from "../types/ipRangesType";
+import { IpRangeType } from "../types/ipRangesType";
 
-export function findIpRangeById(arr: IpRange[], value: number): IpRange | null {
+export function findIpRangeById(arr: IpRangeType[], value: number): IpRangeType | null {
     let start = 0;
     let end = arr.length - 1;
     while (start <= end) {
