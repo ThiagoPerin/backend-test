@@ -9,14 +9,18 @@
     "build": "tsc",
     "test:performance": "k6 run ./test.js",
     "test:performance:dashboard": "K6_WEB_DASHBOARD=true k6 run ./test.js",
-    "test": "node --import ts-node/register --test \"**/*.test.ts\""
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "license": "MIT",
   "devDependencies": {
     "@types/express": "^5.0.3",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.15.21",
+    "jest": "^30.0.0",
     "nodemon": "^3.1.10",
     "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
