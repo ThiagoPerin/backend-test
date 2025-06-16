@@ -13,9 +13,8 @@ export async function start(port = 3000) {
   if (!server) {
     const ipRangesFromCsv = await loadAndProcessCsv('./IP2LOCATION-LITE-DB11.CSV');
     setIpRanges(ipRangesFromCsv);
-    
+
     server = app.listen(port, () => {
-      console.log('Server started.');
       console.log(`Server listening at http://localhost:${port}`);
     });
   }
@@ -23,11 +22,9 @@ export async function start(port = 3000) {
 
 export function stop() {
   if (server) {
-    server.close(() => {
-      console.log('Server stopped.');
-    });
-    server = null;
+    server.close();
   }
+  server = null;
 }
 
 process.on("exit", () => {
