@@ -1,16 +1,13 @@
-import assert from 'assert';
-import { describe, it } from 'node:test';
 import { ipToID } from '../utils/ip-calculator';
 
 describe('ipToID', () => {
-  it('should return a number', () => {
+  test('should return a number', () => {
     const result = ipToID('0.0.0.0');
-    assert(typeof result === 'number', 'it should be a number');
+    expect(typeof result).toBe('number');
   });
 
-  it('when receive 8.8.8.8 should return 0', () => {
+  test('when receive 8.8.8.8 should return 134744072', () => {
     const result = ipToID('8.8.8.8');
-    assert.strictEqual(result, 134744072, 'it should be a number');
+    expect(result).toBe(134744072);
   });
 });
-

@@ -1,21 +1,25 @@
-import assert from 'assert';
-import { beforeEach, afterEach, describe, it } from 'node:test';
 import { start, stop } from '../server';
 
 describe('integration tests', () => {
+  jest.setTimeout(15000);
   const PORT = 3999;
-  const PATH = '/ip/location';
-  beforeEach(() => {
-    start(PORT);
+  const PATH = 'ip/location';
+
+  beforeAll(async () => {
+    await start(PORT);
   });
 
-  afterEach(() => {
+  afterAll(() => {
     stop();
   });
 
-  it('should return 404 when the ip didn\'t exists', async () => {
-    const result = await fetch(`http://localhost:${PORT}/${PATH}?ip=255.255.255.255`);
-    assert.strictEqual(result.status, 404, 'should return the status code 404');
-  })
-})
+  test('should return 404 when the ip don\'t exist', async () => {
+    const result = await fetch(`http://localhost:${PORT}/${PATH}?ip=256.256.256.256`);
+    expect(result.status).toBe(404);
+  });
 
+  test('should return 200 when the ip exist', async () => {
+    const result = await fetch(`http://localhost:${PORT}/${PATH}?ip=8.8.8.8`);
+    expect(result.status).toBe(200);
+  });
+});
