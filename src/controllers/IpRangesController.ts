@@ -14,7 +14,7 @@ export class IpRangesController {
         try {
             const location = await service.findIpRange(ip);
 
-            if (!location) {
+            if (location === null) {
                 return res.status(404).json({ message: 'IP location not found.' });
             }
 
